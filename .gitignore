@@ -1,12 +1,18 @@
-*.class
+.project
+.settings
+.metadata
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+salesforce.schema
+Referenced Packages
 
-# Package Files #
-*.jar
-*.war
-*.ear
+*.sublime-project
+*.sublime-settings
+*.sublime-workspace
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+apex-scripts/log
+
+build.properties
+
+config
+
+mm.log
