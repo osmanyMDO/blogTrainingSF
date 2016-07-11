@@ -1,0 +1,17 @@
+<apex:page controller="BlogHomeController" sidebar="false" >	
+
+        
+            <apex:repeat value="{! posts }" var="postO">
+                <p> <apex:outputLink value="/{! postO.ID}">{! postO.Title__c}</apex:outputLink> </p>
+
+                <p><apex:outputText value="">{! postO.Created_Date__c}</apex:outputText>
+                by <apex:outputLink value="/{! postO.CreatedById}"> {! postO.Owner__c}</apex:outputLink> </p> 
+
+               <apex:image url="{! postO.Photo__c}" />
+                <p><apex:outputText value="/{! postO.Description__c}">{! postO.Description__c}</apex:outputText> </p> 
+
+                <apex:outputLink value="/{! postO.ID}"> CONTINUE READING</apex:outputLink>
+            
+            </apex:repeat>           
+    		
+</apex:page>

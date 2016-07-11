@@ -49,6 +49,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BlogHomeController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CalculatorCalloutMock</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -187,6 +191,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>HelloWorld</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>HomeBlog</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
