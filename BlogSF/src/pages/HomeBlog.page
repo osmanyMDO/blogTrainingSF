@@ -1,17 +1,138 @@
-<apex:page controller="BlogHomeController" sidebar="false" >	
+<apex:page controller="BlogHomeController" sidebar="false" >
+      <style type="text/css">
 
-        
-            <apex:repeat value="{! posts }" var="postO">
-                <p> <apex:outputLink value="/{! postO.ID}">{! postO.Title__c}</apex:outputLink> </p>
+        .owner{
+            font-weight: bold;
+        }
 
-                <p><apex:outputText value="">{! postO.Created_Date__c}</apex:outputText>
-                by <apex:outputLink value="/{! postO.CreatedById}"> {! postO.Owner__c}</apex:outputLink> </p> 
+        .banner{
+            background-color:#5E5252;
+            color: white;            
+            height: 100%;
+            margin-top: -10px;
+            margin-left: -10px;
+            margin-right: 2px;
+            padding-left: 64px;
+            padding-top: 25px;
+            width: 100%;
+        }
 
-               <apex:image url="{! postO.Photo__c}" />
-                <p><apex:outputText value="/{! postO.Description__c}">{! postO.Description__c}</apex:outputText> </p> 
+        .container{
+            margin-left: 64px;
+            width: 660px;
+        }
 
-                <apex:outputLink value="/{! postO.ID}"> CONTINUE READING</apex:outputLink>
-            
-            </apex:repeat>           
+        .continue{
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+
+        .date{            
+            color: #4f4f4f;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .home{            
+            font-size: 14px; 
+            font-weight: 400;
+        }
+
+        .img{
+            display: inline-block;
+            float:left;
+            height: 100px;
+            margin-right: 20px;            
+            width: 120px;
+        }
+
+        .link {
+            color:#0071bc;
+            text-decoration: none;
+        }
+
+        .limit{            
+            border-bottom: 1px solid #4f4f4f;            
+            width: 100%;
+        }
+
+        .newPost{
+            font-size: 14px;            
+            margin-top: 40px;            
+        }
+
+        .oktana{
+            font-size: 72px;
+            font-weight: 100;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+
+        .text{
+            color: #4f4f4f;
+         	float:left;
+         	font-size: 14px; 
+            font-weight: 100; 
+            display: inline-block;       	
+         }
+
+         .title{
+            color:#0071bc;            
+            font-size: 28px;
+            font-weight: 100;
+            margin-bottom: 14px;
+            margin-top: 55px;
+            text-decoration: none;
+         }
+
+          
+      </style>
+    
+            <div class="banner">
+                    <p class="home">Home</p>
+                   <p class="oktana">Oktana's Blog</p>
+            </div>
+    
+            <div class="container">
+
+                <div class="newPost">
+                    <apex:outputLink value="{! $Page.CreatePost}" styleClass="link">
+                    Created a new post
+                    </apex:outputLink>                    
+                </div>
+
+                <!-- Repeat-->
+                <apex:repeat value="{! posts }" var="postO">
+                    <p class="title">
+                        <apex:outputLink value="{! $Page.ShowPost}" styleClass="link">
+                            <apex:param name="postID" value="{! postO.ID}"/>
+                                {! postO.Title__c}
+                            </apex:outputLink>
+                    </p>
+
+                    <p><span class="date"><apex:outputText value="">{! postO.Created_Date__c}</apex:outputText>
+                    by </span><apex:outputLink value="/{! postO.CreatedById}" styleClass="link owner"> {! postO.Owner__c}</apex:outputLink> </p> 
+
+                    
+                    <apex:image styleClass="img" url="{! postO.Photo__c}"/>
+                    <div><apex:outputText value="" styleClass="text">{! postO.Description__c}</apex:outputText> </div>
+
+                    <div class="continue">
+                        <apex:outputLink value="{! $Page.ShowPost}" styleClass="link">
+                            <apex:param name="postID" value="{! postO.ID}"/>
+                            CONTINUE READING
+                        </apex:outputLink>
+                    </div>
+                    
+                    <div class="limit"></div>
+                
+                </apex:repeat>     
+
+                <!-- END Repeat-->         
+                
+            </div>
+         
     		
 </apex:page>
