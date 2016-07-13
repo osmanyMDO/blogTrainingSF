@@ -1,0 +1,12 @@
+<apex:page controller="ShowPostController" sidebar="false">
+      
+    <p> <apex:outputText >{! post.Title__c}</apex:outputText> </p>
+    
+    <p><apex:outputText value="">{! post.Created_Date__c}</apex:outputText>
+        by <apex:outputLink value="/{! post.CreatedById}" styleClass="link"> {! post.Owner__c}</apex:outputLink> </p> 
+    <apex:image style="float:left; display: inline-block;" url="{! post.Photo__c}"/>
+    <p><apex:outputText styleClass="text">{! post.Post_body__c}</apex:outputText> </p>
+
+
+    
+</apex:page>
